@@ -1,3 +1,3 @@
-const someFn = (message: string) => console.log(message)
+const someFn = (message: string) => alert(message)
 
 export { someFn }

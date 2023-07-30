@@ -12,11 +12,13 @@ module.exports = (env: BuildEnv) => {
   
   const mode = env.mode || 'development'
   const isDev = mode === 'development'
+  const port = env.port || 3000
   
   const config: BuildOptions = {
     mode,
     isDev,
-    paths
+    paths,
+    port
   }
 
   return buildWebpackConfig(config)

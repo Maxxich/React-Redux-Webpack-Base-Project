@@ -3,22 +3,25 @@ import { buildLoaders } from "./buildLoaders"
 import { buildResolvers } from "./buildResolvers"
 import type webpack from 'webpack'
 import type { BuildOptions } from "./types/config"
+import { buildDevServer } from "./buildDevServer"
 
-export function buildWebpackConfig (config: BuildOptions): webpack.Configuration {
-  const { isDev } = config
+export function buildWebpackConfig (options: BuildOptions): webpack.Configuration {
+  const { isDev } = options
   return {
-    mode: config.mode,
-    entry: config.paths.entry,
+    mode: options.mode,
+    entry: options.paths.entry,
     output: {
       filename: '[name].[contenthash].js',
-      path: config.paths.build,
+      path: options.paths.build,
       clean: true
     },
-    plugins: buildPlugins(config),
+    plugins: buildPlugins(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     module: {
-      rules: buildLoaders(config)
+      rules: buildLoaders(options)
     },
-    resolve: buildResolvers(config)
+    resolve: buildResolvers(options),
+    // @ts-ignore
+    devServer: isDev ? buildDevServer(options) : undefined
   }
 }
