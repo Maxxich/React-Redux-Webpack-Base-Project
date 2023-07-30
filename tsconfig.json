@@ -5,13 +5,14 @@
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["./src/*"]
-    },
+    "baseUrl": "src",
+    // "paths": {
+    //   "*": ["./src"]
+    // },
+    "strict": true,
     "allowSyntheticDefaultImports": true
   },
   "ts-node": {
