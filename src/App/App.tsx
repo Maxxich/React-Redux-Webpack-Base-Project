@@ -1,34 +1,32 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState } from 'react'
 import './index.scss'
-import Button from 'shared/Button/Button'
-import { ButtonAsync } from 'shared/Button/Button.async';
+import { ButtonAsync } from 'shared/Button/Button.async'
 import Photo from 'shared/assets/images/images.jpg'
 import Icon from 'shared/assets/svg/svg.svg'
 
 interface IAppProps {
 }
 
-
-const App: React.FunctionComponent<IAppProps> = (props) => {
-  const [showButton, setShowButton] = useState<boolean>(false)
-  const handleClick = () => {
-    setShowButton(true)
-  }
+const App: React.FunctionComponent<IAppProps> = () => {
+	const [showButton, setShowButton] = useState<boolean>(false)
+	const handleClick = () => {
+		setShowButton(true)
+	}
   
-  return (
-    <>
-      <h1 onClick={handleClick}>Render App for</h1>
-      {
-        showButton
+	return (
+		<>
+			<h1 onClick={handleClick}>Render App for</h1>
+			{
+				showButton
         &&
         <Suspense fallback="...Loading">
-          <ButtonAsync/>
+        	<ButtonAsync/>
         </Suspense>
-      }
-      <img src={Photo}/>
-      <Icon/>
-    </>
-  );
-};
+			}
+			<img src={Photo}/>
+			<Icon/>
+		</>
+	)
+}
 
-export default App;
+export default App
