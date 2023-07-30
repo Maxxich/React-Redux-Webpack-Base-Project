@@ -8,7 +8,6 @@ import Icon from 'shared/assets/svg/svg.svg'
 interface IAppProps {
 }
 
-alert(__IS_DEV__)
 
 const App: React.FunctionComponent<IAppProps> = (props) => {
   const [showButton, setShowButton] = useState<boolean>(false)
@@ -18,7 +17,7 @@ const App: React.FunctionComponent<IAppProps> = (props) => {
   
   return (
     <>
-      <h1 onClick={handleClick}>Render App</h1>
+      <h1 onClick={handleClick}>Render App for</h1>
       {
         showButton
         &&
