@@ -1,3 +1,6 @@
 import { lazy } from 'react'
 
-export const ButtonAsync = lazy(() => import('./Button'))
+/**
+ * Primary UI component for user interaction
+ */
+export const Button = lazy(() => import('./Button'))

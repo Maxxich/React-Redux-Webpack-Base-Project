@@ -1,6 +1,6 @@
 import { Suspense, useState } from 'react'
 import './index.scss'
-import { ButtonAsync } from 'shared/Button/Button.async'
+import { Button } from 'shared/Button/Button.async'
 import Photo from 'shared/assets/images/images.jpg'
 import Icon from 'shared/assets/svg/svg.svg'
 
@@ -20,7 +20,7 @@ const App: React.FunctionComponent<IAppProps> = () => {
 				showButton
         &&
         <Suspense fallback="...Loading">
-        	<ButtonAsync/>
+        	<Button/>
         </Suspense>
 			}
 			<img src={Photo}/>

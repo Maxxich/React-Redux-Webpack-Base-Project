@@ -1,11 +1,15 @@
 import cls from './Button.module.scss'
 
 interface IButtonProps {
+	children?: string
 }
 
-const Button: React.FunctionComponent<IButtonProps> = () => {
+
+const Button: React.FunctionComponent<IButtonProps> = ({
+	children
+}) => {
 	return (
-		<button className={cls.Button}>123132</button>
+		<button className={cls.Button}>{children}</button>
 	)
 }
 
