@@ -1,15 +1,15 @@
-import { nameSelector } from './nameSelector'
+import { nameSelector } from "./nameSelector"
 
-describe('nameSelector', () => {
+describe("nameSelector", () => {
 
-	test('should return name', () => {
+	test("should return name", () => {
         const mockedState = {
-            name: 'Alex'
+            name: "Alex"
         }
-        expect(nameSelector(mockedState)).toBe('Alex')
+        expect(nameSelector(mockedState)).toBe("Alex")
     })
 
-    test('should return undefined', () => {
+    test("should return undefined", () => {
         const mockedState = {
             name: undefined
         }

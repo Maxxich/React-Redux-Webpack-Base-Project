@@ -1,10 +1,10 @@
-import { ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpack'
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'
-import * as MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import * as ReactRefreshHotModulePlugin from '@pmmmwh/react-refresh-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import { ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from "webpack"
+import * as HtmlWebpackPlugin from "html-webpack-plugin"
+import * as MiniCssExtractPlugin from "mini-css-extract-plugin"
+import * as ReactRefreshHotModulePlugin from "@pmmmwh/react-refresh-webpack-plugin"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
-import type { BuildOptions } from './types/config'
+import type { BuildOptions } from "./types/config"
 
 
 export function buildPlugins (options: BuildOptions) {
@@ -28,7 +28,7 @@ export function buildPlugins (options: BuildOptions) {
 	} else {
 		plugins.push(new BundleAnalyzerPlugin({
 			openAnalyzer: true,
-			analyzerMode: 'static',
+			analyzerMode: "static",
 			reportFilename: options.paths.bundleAnalyzerReport
 		}))
 	}

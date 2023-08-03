@@ -1,15 +1,23 @@
-import cls from './Button.module.scss'
+import { ButtonHTMLAttributes } from "react"
+import cls from "./Button.module.scss"
 
-interface IButtonProps {
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children?: string
 }
 
 
 const Button: React.FunctionComponent<IButtonProps> = ({
-	children
+	children,
+	...rest
 }) => {
 	return (
-		<button className={cls.Button}>{children}</button>
+		<button
+			className={cls.Button} 
+			data-testid={"button"}
+			{...rest}
+		>
+			{children}
+		</button>
 	)
 }
 

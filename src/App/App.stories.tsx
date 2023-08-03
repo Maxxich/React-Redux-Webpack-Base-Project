@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
-import App from './App'
+import { StoryFn, Meta } from "@storybook/react"
+import App from "./App"
  
 export default {
-	title: 'app/App',
+	title: "app/App",
 	component: App,
 } as Meta<typeof App>
  

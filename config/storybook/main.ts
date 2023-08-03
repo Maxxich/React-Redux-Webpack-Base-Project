@@ -1,42 +1,42 @@
-import type { StorybookConfig } from '@storybook/react-webpack5'
-import path from 'path'
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
-import { BuildPaths } from '../build/types/config'
+import type { StorybookConfig } from "@storybook/react-webpack5"
+import path from "path"
+import webpack, { DefinePlugin, RuleSetRule } from "webpack"
+import { BuildPaths } from "../build/types/config"
 
 const config: StorybookConfig = {
-	stories: ['../../src/**/*.mdx', '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+	stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 	addons: [
-		'@storybook/addon-links',
-		'@storybook/addon-essentials',
-		'@storybook/addon-onboarding',
-		'@storybook/addon-interactions',
+		"@storybook/addon-links",
+		"@storybook/addon-essentials",
+		"@storybook/addon-onboarding",
+		"@storybook/addon-interactions",
 		{
-			name: '@storybook/addon-styling',
+			name: "@storybook/addon-styling",
 			options: {
 				sass: {
-					implementation: require('sass'),
+					implementation: require("sass"),
 				},
 			},
 		},
 	],
 	framework: {
-		name: '@storybook/react-webpack5',
+		name: "@storybook/react-webpack5",
 		options: {},
 	},
 	docs: {
-		autodocs: 'tag',
+		autodocs: "tag",
 	},
 	async webpackFinal(config): Promise<webpack.Configuration> {
 		const paths: BuildPaths = {
-			build: '',
-			entry: '',
-			html: '',
-			src: path.resolve(__dirname, '..', '..', 'src'),
-			bundleAnalyzerReport: ''
+			build: "",
+			entry: "",
+			html: "",
+			src: path.resolve(__dirname, "..", "..", "src"),
+			bundleAnalyzerReport: ""
 		}
 
 		config.resolve!.modules!.push(paths.src)
-		config.resolve!.extensions!.push('.ts', '.tsx')
+		config.resolve!.extensions!.push(".ts", ".tsx")
 		// @ts-ignore
 		config.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
 			if (/svg/.test(rule.test as string)) {
@@ -47,7 +47,7 @@ const config: StorybookConfig = {
 
 		config.module?.rules?.push({
 			test: /\.svg$/,
-			use: ['@svgr/webpack']
+			use: ["@svgr/webpack"]
 		})
 		
 		config.plugins!.push(new DefinePlugin({
