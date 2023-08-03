@@ -25,6 +25,7 @@ const App: React.FunctionComponent<IAppProps> = () => {
 			}
 			<img src={Photo} data-testid="image"/>
 			<Icon data-testid="icon"/>
+			<Icon data-testid="icon"/>
 		</>
 	)
 }
