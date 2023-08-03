@@ -20,9 +20,16 @@ const config: Config = {
 	globals: {
 		__IS_DEV__: true,
 	},
-	collectCoverage: true,
-	coverageDirectory: "coverage",
-	coverageProvider: "v8",
+	reporters: [
+		"default",
+		[
+			"jest-html-reporters", 
+			{
+				publicPath: path.resolve(__dirname, "..", "..", "reports"),
+				filename: "unitTestsReport.html"
+			}
+		]
+	]
 }
 
 export default config
