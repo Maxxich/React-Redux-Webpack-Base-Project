@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:serve": "webpack serve --env port=3000 mode=development",
+    "start:vite": "vite --host",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -17,7 +18,8 @@
     "test:ui:init": "npx loki update",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
-    "test:ui:report": "reg-cli \"./.loki/current\" \"./.loki/reference\" \"./.loki/difference\" -R \"./reports/uiTestReport.html\" -J \"./reports/uiTestReport/reg.json\""
+    "test:ui:report": "reg-cli \"./.loki/current\" \"./.loki/reference\" \"./.loki/difference\" -R \"./reports/uiTestReport.html\" -J \"./reports/uiTestReport/reg.json\"",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -55,6 +57,7 @@
     "eslint-plugin-storybook": "^0.6.13",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
