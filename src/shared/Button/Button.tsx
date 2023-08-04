@@ -3,6 +3,7 @@ import cls from "./Button.module.scss"
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children?: string
+	// name: string
 }
 
 

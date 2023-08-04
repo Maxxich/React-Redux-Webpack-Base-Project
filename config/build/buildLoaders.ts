@@ -1,12 +1,10 @@
+import { buildBabelLoader } from "./loaders/buildBabelLoader"
 import { buildCssLoader } from "./loaders/buildCssLoader"
 import type { BuildOptions } from "./types/config"
 
 export function buildLoaders (options: BuildOptions) {
-	const tsLoader = {
-		test: /\.tsx?$/,
-		use: "ts-loader",
-		exclude: /node_modules/,
-	}
+	const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false })
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true })
 
 	const cssLoader = buildCssLoader(options.isDev)
 
@@ -25,9 +23,10 @@ export function buildLoaders (options: BuildOptions) {
 	}
   
 	return [
-		tsLoader,
 		cssLoader,
 		fileLoader,
-		svgLoader
+		svgLoader,
+		tsxCodeBabelLoader,
+		codeBabelLoader
 	]
 }
