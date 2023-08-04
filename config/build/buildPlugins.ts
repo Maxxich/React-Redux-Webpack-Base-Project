@@ -6,6 +6,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
 import type { BuildOptions } from "./types/config"
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
+import CircularDependencyPlugin from "circular-dependency-plugin"
 
 
 export function buildPlugins (options: BuildOptions) {
@@ -14,9 +15,12 @@ export function buildPlugins (options: BuildOptions) {
 	const plugins = [
 		new HtmlWebpackPlugin({ template: paths.html }),
 		new ProgressPlugin(),
-		new MiniCssExtractPlugin(),
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
+		}),
+		new CircularDependencyPlugin({
+			exclude: /node_modules/,
+			failOnError: true
 		}),
 		new ForkTsCheckerWebpackPlugin({
 			typescript: {
@@ -41,6 +45,7 @@ export function buildPlugins (options: BuildOptions) {
 			analyzerMode: "static",
 			reportFilename: options.paths.bundleAnalyzerReport
 		}))
+		plugins.push(new MiniCssExtractPlugin())
 	}
 
 	return plugins
