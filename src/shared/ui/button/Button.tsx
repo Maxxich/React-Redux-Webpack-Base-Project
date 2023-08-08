@@ -15,6 +15,7 @@ const Button: React.FunctionComponent<IButtonProps> = ({
 }) => {
 	const classes = classNames(cls.Button, className)
 
+	
 	return (
 		<button
 			className={classes} 

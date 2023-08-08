@@ -27,7 +27,14 @@ module.exports = {
 		"@typescript-eslint/ban-ts-comment": "warn",
 		"no-mixed-spaces-and-tabs": "off",
 		"react/prop-types": "off",
-		"react/no-unescaped-entities": "off"
+		"react/no-unescaped-entities": "off",
+		"object-curly-spacing": ["error", "always"],
+		"eol-last": ["error", "always"],
+		"padding-line-between-statements": [
+			"error",
+			{ blankLine: "always", prev: "*", next: "return" }
+		],
+		"no-empty": "error"
 	},
 	ignorePatterns: ["./scripts/*.js"]
 }
