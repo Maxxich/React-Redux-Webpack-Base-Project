@@ -28,5 +28,6 @@ module.exports = {
 		"no-mixed-spaces-and-tabs": "off",
 		"react/prop-types": "off",
 		"react/no-unescaped-entities": "off"
-	}
+	},
+	ignorePatterns: ["./scripts/*.js"]
 }
